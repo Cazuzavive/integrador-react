@@ -1,42 +1,50 @@
 .form {
-    margin: auto;
-    max-width: 900px;
+    margin: 1rem;
     background-color: white;
-    /* margin-left: 5%;
-    margin-right: 5%; */
-    padding: 10px;
+    padding: 1em;
     border-color: whitesmoke;
     box-shadow: 26px 28px 15px -8px rgba(0, 0, 0, 0.15);
     border-radius: 0.7rem;
 }
 
 .fieldset {
-    flex-basis: auto;
-    padding: auto;
-    width: auto;
     border-radius: .25 rem 0 0 .25 rem;
     outline: none;
+    margin: 1rem;
 }
 
 .select {
-    flex: 1;
-    padding: .25 3rem;
-    border-radius: .25 rem 0 0 .25 rem;
-    outline: auto;
+    flex: auto;
+    padding: .25 4rem;
+    outline: none;
+    margin-left: 25rem;
 }
 
 .input {
     flex: 1;
-    padding: .25rem 4rem;
-    border-radius: .25rem 0 0 .25rem;
+    padding: .25rem .5rem;
     outline: none;
-
+    margin-left: 25rem;
 }
 
 .btn {
-    width: 2rem;
+    width: 4rem;
+    height: 2rem;
+    background-color: gray;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: .25rem 0 0 .25rem;
+    border-radius: .50rem 0 0 .50rem;
+    margin: 1rem;
+    margin-left: 15rem;
+    cursor: pointer;
+}
+
+button:hover {
+    color: whitesmoke !important;
+    background-color: cornflowerblue !important;
+}
+
+button:active {
+    background-color: black !important;
 }

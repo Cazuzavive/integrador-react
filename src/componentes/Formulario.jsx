@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import FormularioStyle from "../css/Formulario.module.css"
 
 
+
 const Formulario = () => {
     const [historial, setHistorial] = useState(() => {
         let storage = localStorage.getItem("historial");
@@ -47,15 +48,14 @@ const Formulario = () => {
             setTotal(1000 * parseFloat(value) * origen.increment * destino.increment);
             setLoad(false);
             e.target.reset();
-        }, 4000);
+        }, 2000);
     }
 
     const guardar = () => {
         setHistorial([
             ...historial,
             {
-                fecha: new Date().toDateString("es-mx"),
-                time: new Date().toLocaleTimeString("es-mx"),
+                fecha: new Date().toLocaleString(),
                 origen: listOne.find(({ id }) => id == optionOne),
                 destino: listTwo.find(({ id }) => id == optionTwo),
                 total: total.toFixed(7),
@@ -78,7 +78,8 @@ const Formulario = () => {
         {
             !load &&
             <form onSubmit={cotizar} className={FormularioStyle.form}>
-                <fieldset>
+                <h4>Nuestra compañia ofrece cobertura por al menos siete dias, y como maximo seis meses.</h4>
+                <fieldset className={FormularioStyle.fieldset}>
                     <label htmlFor="origen">Pais de origen</label>
                     <select className={FormularioStyle.select}
                         name="origen"
@@ -87,8 +88,8 @@ const Formulario = () => {
                         onChange={({ target }) => { setListTwo(listTwo.filter(option => option.id != target.value)); setOptionOne(target.value) }}
                     >
 
-                        <option value={0} disabled>
-                            Seleccionar su pais de origen
+                        <option value={0} disabled className={FormularioStyle.option}>
+                            ...
                         </option>
                         {listOne.map(({ id, content }) => (
                             <option key={id} value={id}>
@@ -105,8 +106,8 @@ const Formulario = () => {
                         defaultValue={0}
                         onChange={({ target }) => { setListOne(listOne.filter(option => option.id != target.value)); setOptionTwo(target.value) }}>
 
-                        <option value={0} disabled>
-                            Seleccionar su pais de destino
+                        <option value={0} disabled className={FormularioStyle.option}>
+                            ...
                         </option>
                         {listTwo.map(({ id, content }) => (
                             <option key={id} value={id}>
@@ -115,7 +116,7 @@ const Formulario = () => {
                         ))}
                     </select>
                 </fieldset>
-                <fieldset>
+                <fieldset className={FormularioStyle.fieldset}>
                     <label htmlFor="dias">Estadia de viaje</label>
                     <input className={FormularioStyle.input}
                         type="number"
@@ -123,17 +124,18 @@ const Formulario = () => {
                         id="dias"
                         min={7}
                         max={183}
+                        defaultValue={7}
                         onInput={({ target }) => setValue(target.value)}
                     />
                 </fieldset>
-                <button type="submit">Cotizar</button>
+                <button type="submit" className={FormularioStyle.btn}>Cotizar</button>
             </form >
         }
         {
             total && (
                 <form onSubmit={(e) => e.preventDefault()}>
                     <h2> El total de su seguro es ${total.toFixed(2)}</h2>
-                    <button type="button" onClick={guardar}>Guardar</button>
+                    <button type="button" className={FormularioStyle.btn} onClick={guardar}>Guardar</button>
                 </form>
 
             )
@@ -142,8 +144,3 @@ const Formulario = () => {
 };
 
 export default Formulario;
-
-/*
-
-
-*/

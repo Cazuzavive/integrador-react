@@ -1,17 +1,19 @@
 import { Link, Outlet } from "react-router-dom";
-import LayoutStyle from "../css/Layout.module.css"
+import LayoutStyle from "../css/Layout.module.css";
+import Lista from "../assets/lista.png";
+import Calculadora from "../assets/calculadora.png";
 
 const Layout = () => {
     return (
         <>
             <header>
                 <h1 className={LayoutStyle.title}>Cotizador de seguros de viaje en el Mercosur</h1>
-                <h4>Nuestra compañia ofrece cobertura por al menos siete dias, y como maximo seis meses.</h4>
-                <Link to="/" title="Ver Formulario">
-                    Formulario
+                <Link to="/" title="Ver Cotizador" className={LayoutStyle.separador}>
+                    <img src={Calculadora} />
+
                 </Link>
-                <Link to="/historial" title="Ver Historial">
-                    Historial
+                <Link to="/historial" title="Ver Historial" className={LayoutStyle.separador}>
+                    <img src={Lista} />
                 </Link>
             </header>
             <Outlet />

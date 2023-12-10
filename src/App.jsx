@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./css/base.css";
 import Layout from "./componentes/Layout";
 import Formulario from "./componentes/Formulario";
 import Historial from "./componentes/Historial";

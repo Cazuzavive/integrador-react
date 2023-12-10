@@ -18,15 +18,15 @@ const Historial = () => {
             <h1>Historial</h1>
             <ul>
                 {historial.map((elemento, index) => (
-                    <li key={index}>
+                    <li key={index} className={HistorialStyle.li}>
                         <p>Fecha:{elemento.fecha}</p>
-                        <p>Hora:{elemento.hora}</p>
                         <p>Pais de origen:{elemento.origen.content}</p>
                         <p>Pais de destino:{elemento.destino.content}</p>
                         <p>Total: ${elemento.total}</p>
                     </li>
                 ))}
             </ul>
+
         </>
     );
 };
